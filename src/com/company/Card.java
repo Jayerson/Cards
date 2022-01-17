@@ -2,26 +2,21 @@ package com.company;
 
 public class Card {
 
-    String[] suits = {"♠","♡","♢","♣"};
-    String[] symbols = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
-    int[] values = {2,3,4,5,6,7,8,9,10,11,12,13,14};
+    // vars
+    char suit;
+    String symbol;
+    int value;
 
-    Card (String[] suits, String[] symbols, int[] values) {
-        for (int i = 0; i < 4; i++) {
-            String suit = suits[i];
-            for (int j = 0; j < 13; j++) {
-                String symbol = symbols[j];
-                int value = values[j];
-            }
-        }
+    // constructor
+    public Card (char suit, String symbol, int value) {
+        this.suit = suit;
+        this.symbol = symbol;
+        this.value = value;
+    }
+
+    // output method
+    void print() {
+        System.out.printf("This card is the %s of %s, with value %d%n",
+                this.symbol, this.suit, this.value);
     }
 }
-// What in the name of exasperation does this mean :
-//
-// "toString method describes class"
-
-// I gave up half way through part 3 at midnight
-//
-// The words don't make any sense
-//
-// I'm crying because my head hurts from banging it against the fucking wall
