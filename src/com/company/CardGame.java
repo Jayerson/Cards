@@ -1,6 +1,18 @@
 package com.company;
 import java.util.*;
 
+class sortValue implements Comparator<Card> {
+    public int compare(Card a, Card b) {
+        return a.value - b.value;
+    }
+}
+
+class sortSuit implements Comparator<Card> {
+    public int compare(Card a, Card b) {
+        return a.suit - b.suit;
+    }
+}
+
 public class CardGame {
     ArrayList<Card> deckOfCards = new ArrayList<>();
     ArrayList<Card> inPlay = new ArrayList<>();
@@ -23,7 +35,6 @@ public class CardGame {
 
     public void shuffleDeck() { // takes deck of cards, no arg required
         Collections.shuffle(deckOfCards);
-        printDeck();
     }
 
     public void printDeck() { // for each card in deck, print card
@@ -39,20 +50,12 @@ public class CardGame {
         // not Card.print(deal); deal is an object that can be part of an arraylist.
     }
 
-    public void sortValue() {
-        for (int b = 2; b < 15; b++) {
-            for (int a = 0; a < deckOfCards.size(); a++) {
-                int current = deckOfCards.get(a).value;
-                if (current != b) {
-                    Card swap = deckOfCards.get(a);
-                    deckOfCards.remove(a);
-                    deckOfCards.add(swap);
-                }
-            }
-        }
+    public void sortByValue() {
+        Collections.sort(deckOfCards, new sortValue());
     }
 
-    public void sortBySuit() {
-        //
+    public void sortBySuit(){
+        Collections.sort(deckOfCards, Comparator.comparing(Card::getSuit).thenComparing(Card::getValue));
     }
 }
+

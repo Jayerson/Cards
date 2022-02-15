@@ -7,6 +7,30 @@ public class Card {
     String symbol;
     int value;
 
+    public char getSuit() {
+        return suit;
+    }
+
+    public void setSuit(char suit) {
+        this.suit = suit;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
     // constructor
     public Card (char suit, String symbol, int value) {
         this.suit = suit;
